@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Ryu/Poses/Idle.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Ryu/Poses/Low_Kick_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Ryu/Poses/Punch_2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Ryu/Poses/Punch_1.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.01
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "low kick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "Straight Punch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "Upper cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 90.3913, 48.86 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.7963, 15.25 )
+
+[node name="Node2D" type="KinematicBody2D"]
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 278, 273 )
+scale = Vector2( 1.98438, 2.03125 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 281, 273 )
+rotation = 1.56612
+shape = SubResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 65, 108 )
+
+[node name="left hand" type="Area2D" parent="Node2D"]
+position = Vector2( 188, 115 )
+
+[node name="hand" type="CollisionShape2D" parent="Node2D/left hand" groups=["P1 hand feet coll"]]
+modulate = Color( 0.0627451, 0.6, 0.145098, 1 )
+self_modulate = Color( 0.0627451, 0.568627, 0.129412, 1 )
+position = Vector2( 1, -1.25 )
+scale = Vector2( 2.16, 1 )
+shape = SubResource( 3 )
+
+[node name="right hand" type="Area2D" parent="Node2D"]
+position = Vector2( 274, 114 )
+
+[node name="hand" type="CollisionShape2D" parent="Node2D/right hand" groups=["P1 hand feet coll"]]
+modulate = Color( 0.0627451, 0.6, 0.145098, 1 )
+self_modulate = Color( 0.0627451, 0.568627, 0.129412, 1 )
+position = Vector2( 0, -1 )
+scale = Vector2( 2.16, 1 )
+shape = SubResource( 3 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="left foot" type="Area2D" parent="Node2D2"]
+position = Vector2( 315, 358 )
+
+[node name="left foot" type="CollisionShape2D" parent="Node2D2/left foot" groups=["P1 hand feet coll"]]
+modulate = Color( 0.0352941, 0.12549, 0.882353, 1 )
+self_modulate = Color( 0.0235294, 0.164706, 0.921569, 1 )
+position = Vector2( 3, 0 )
+scale = Vector2( 2.16, 1 )
+shape = SubResource( 3 )
+
+[node name="right foot" type="Area2D" parent="Node2D2"]
+position = Vector2( 230, 357 )
+
+[node name="right foot" type="CollisionShape2D" parent="Node2D2/right foot" groups=["P1 hand feet coll"]]
+modulate = Color( 0.0196078, 0.113725, 0.905882, 1 )
+self_modulate = Color( 0.054902, 0.0862745, 0.823529, 1 )
+position = Vector2( -1, 1 )
+scale = Vector2( 2.16, 1 )
+shape = SubResource( 3 )
