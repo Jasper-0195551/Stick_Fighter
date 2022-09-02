@@ -19,9 +19,9 @@ func _process(delta):
 		if(currentAttack == 0):
 			animatedSprite.play("Straight Punch")
 		elif(currentAttack == 1):
-			animatedSprite.play("Upper Cut")
+			animatedSprite.play("Upper cut")
 		elif(currentAttack == 2):
-			animatedSprite.play("Low Kick")
+			animatedSprite.play("low kick")
 
 		isinCombo = true
 		currentAttack += 1
